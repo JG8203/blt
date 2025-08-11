@@ -295,7 +295,7 @@ def train(args: TrainArgs):
             load_from_checkpoint(
                 ckpt_fs, args.checkpoint.init_ckpt_path, model, model_key="model"
             )  # Put model_key="" if its directly the model checkpoint
-            model.rope_embeddings.reset_parameters()  # For RoPe initialization since it's a buffer it might not be loaded
+            # Note: BLT will learn positioning from scratch (no RoPE reset needed)
         else:
             with torch.random.fork_rng(devices=[torch.cuda.current_device()]):
                 torch.manual_seed(model_args.seed)

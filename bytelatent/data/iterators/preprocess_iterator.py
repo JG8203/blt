@@ -31,13 +31,13 @@ class PreprocessIteratorState(PydanticIteratorState):
     add_tokens: bool
     add_patches: bool
     tokenizer_args: TokenizerArgs
-    patcher_args: PatcherArgs
+    patcher_args: PatcherArgs # <--- ADD THIS LINE
 
     def build(self):
         arrow_iterator = self.arrow_file_iterator_state.build()
         return PreprocessIterator(
             arrow_iterator,
-            patcher_args=self.patcher_args,
+            patcher_args=self.patcher_args, # <--- ADD THIS LINE
             tokenizer_args=self.tokenizer_args,
             add_tokens=self.add_tokens,
             add_patches=self.add_patches,
@@ -68,14 +68,10 @@ class PreprocessIterator(StatefulIterator):
         self.patcher: Patcher | None = None
 
     def get_state(self) -> PreprocessIteratorState:
-        """
-        The only state to maintain here is from arrow, there
-        isn't any internal state on this iterator.
-        """
         return PreprocessIteratorState(
             arrow_file_iterator_state=self.arrow_iterator.get_state(),
             tokenizer_args=self.tokenizer_args,
-            patcher_args=self.patcher_args,
+            patcher_args=self.patcher_args, # <--- ADD THIS LINE
             add_tokens=self.add_tokens,
             add_patches=self.add_patches,
         )

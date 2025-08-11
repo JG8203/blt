@@ -180,16 +180,27 @@ def build_fsdp_grouping_plan(model_args: LMTransformerArgs):
     else:
         for i in range(model_args.n_layers_local_encoder):
             group_plan.append((f"local_encoder.layers.{i}", False))
-            group_plan.append((f"local_encoder.cross_attn_layers.{i}", False))
+        
+        # Only add cross_attn_layers if cross_attn_encoder is enabled
+        if getattr(model_args, "cross_attn_encoder", False):
+            layers_to_add = model_args.n_layers_local_encoder if getattr(model_args, "cross_attn_all_layers_encoder", False) else 1
+            for i in range(layers_to_add):
+                group_plan.append((f"local_encoder.cross_attn_layers.{i}", False))
+        
         for i in range(model_args.n_layers_local_decoder):
             group_plan.append((f"local_decoder.layers.{i}", False))
-            group_plan.append((f"local_decoder.cross_attn_layers.{i}", False))
+        
+        # Only add cross_attn_layers if cross_attn_decoder is enabled
+        if getattr(model_args, "cross_attn_decoder", False):
+            layers_to_add = model_args.n_layers_local_decoder if getattr(model_args, "cross_attn_all_layers_decoder", False) else 1
+            for i in range(layers_to_add):
+                group_plan.append((f"local_decoder.cross_attn_layers.{i}", False))
         for i in range(model_args.n_layers_global):
             group_plan.append((f"global_transformer.layers.{i}", False))
 
-        for i in range(len(model_args.encoder_hash_byte_group_size)):
-            group_plan.append((f"encoder_hash_tok_embedding.{i}", False))
-
+        if hasattr(model_args, "encoder_hash_byte_group_size") and model_args.encoder_hash_byte_group_size is not None:
+            for i in range(len(model_args.encoder_hash_byte_group_size)):
+                group_plan.append((f"encoder_hash_tok_embedding.{i}", False))
     return group_plan
 
 

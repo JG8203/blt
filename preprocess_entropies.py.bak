@@ -1,0 +1,241 @@
+import time
+import fsspec
+import jsonlines
+import numpy as np
+import pyarrow as pa
+import torch
+import typer
+from rich.progress import Progress, TextColumn
+
+from bytelatent.data.file_util import get_fs
+from bytelatent.data.patcher import calculate_entropies
+from bytelatent.entropy_model import load_entropy_model
+from bytelatent.tokenizers.build_tokenizer import TokenizerArgs
+import logging
+
+# Setup basic logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def get_id_key(doc: dict) -> int:
+    """
+    We need a reliable way to ensure that samples from jsonl
+    and arrow are the same, but there is no unique id field,
+    so derive the best possible
+    """
+    if "sample_id" in doc:
+        return "sample_id"
+    elif "title" in doc:
+        return "title"
+    elif "qid" in doc:
+        return "qid"
+    elif "paper_id" in doc:
+        return "paper_id"
+    elif "path" in doc:
+        return "path"
+    elif "url" in doc:
+        return "url"
+    elif "id" in doc:
+        return "id"
+    else:
+        raise ValueError(f"Could not find a id key from: {doc.keys()}")
+
+
+def get_id_from_doc(doc: dict) -> int:
+    """
+    We need a reliable way to ensure that samples from jsonl
+    and arrow are the same, but there is no unique id field,
+    so derive the best possible
+    """
+    return str(doc[get_id_key(doc)])
+
+
+def get_text(doc: dict):
+    if "text" in doc:
+        text = doc["text"]
+    elif "content" in doc:
+        text = doc["content"]
+    else:
+        raise ValueError(f"Could not find a text key from: {doc.keys()}")
+    return text
+
+
+def visualize_patches(text: str, tokens: torch.Tensor, patch_lengths: torch.Tensor, entropies: torch.Tensor, tokenizer, max_patches_to_show: int = 5):
+    """
+    Visualize the patches formed from the text with their entropy values.
+    """
+    if len(patch_lengths.shape) > 1:
+        patch_lengths = patch_lengths[0]  # Take first batch
+    if len(entropies.shape) > 1:
+        entropies = entropies[0]  # Take first batch
+    if len(tokens.shape) > 1:
+        tokens = tokens[0]  # Take first batch
+    
+    print(f"\n--- Patch Visualization (showing first {max_patches_to_show} patches) ---")
+    print(f"Text length: {len(text)} chars")
+    print(f"Token count: {len(tokens)}")
+    print(f"Number of patches: {len(patch_lengths)}")
+    print(f"Average entropy: {entropies.mean():.3f}")
+    print(f"Entropy std: {entropies.std():.3f}")
+    
+    token_idx = 0
+    patches_shown = 0
+    
+    for patch_idx, patch_len in enumerate(patch_lengths):
+        if patches_shown >= max_patches_to_show:
+            print(f"... (showing only first {max_patches_to_show} patches out of {len(patch_lengths)})")
+            break
+            
+        patch_len = int(patch_len.item())
+        if patch_len == 0:
+            break
+            
+        # Get tokens for this patch
+        patch_tokens = tokens[token_idx:token_idx + patch_len]
+        
+        # Get entropies for this patch
+        patch_entropies = entropies[token_idx:token_idx + patch_len]
+        
+        # Decode tokens to text
+        try:
+            patch_text = tokenizer.decode(patch_tokens.tolist())
+            # Escape special characters for display
+            patch_text_display = repr(patch_text)[1:-1]  # Remove outer quotes
+        except:
+            patch_text_display = f"<decode_error: {patch_tokens.tolist()}>"
+        
+        # Calculate patch statistics
+        avg_entropy = patch_entropies.mean().item()
+        max_entropy = patch_entropies.max().item()
+        min_entropy = patch_entropies.min().item()
+        
+        print(f"Patch {patch_idx:2d}: len={patch_len:2d} | avg_ent={avg_entropy:.3f} | max_ent={max_entropy:.3f} | min_ent={min_entropy:.3f}")
+        print(f"  Text: '{patch_text_display}'")
+        print(f"  Tokens: {patch_tokens.tolist()}")
+        print(f"  Entropies: {[f'{e:.2f}' for e in patch_entropies.tolist()]}")
+        print()
+        
+        token_idx += patch_len
+        patches_shown += 1
+
+
+def jsonl_file_iterator(fs: fsspec.AbstractFileSystem, path: str):
+    with fs.open(path) as f:
+        reader = jsonlines.Reader(f)
+        yield from reader
+
+
+def main(
+    input_file: str,
+    output_file: str,
+    patching_device: str = "cuda",
+    log_step: int = 10_000,
+    entropy_model_checkpoint_dir: str = "public_data/entropy_checkpoint",
+    entropy_model_state_dict_path: str = "public_data/entropy_model.pth",
+    bpe_tokenizer_path: str = "public_data/tokenizer.model",
+    s3_profile: str | None = None,
+):
+    print(f"=== Robust Bytelatent Entropy Preprocessing ===")
+    print(f"Input file: {input_file}")
+    
+    # --- THIS IS THE KEY CHANGE: PROCESS IN CHUNKS ---
+    # We will process each document's text in chunks of this size (in characters)
+    # to keep memory usage low and stable.
+    TEXT_CHUNK_SIZE = 32768 # 32k characters per chunk
+    # --------------------------------------------------
+
+    print("Loading entropy model...")
+    entropy_model, _ = load_entropy_model(
+        entropy_model_checkpoint_dir,
+        entropy_model_state_dict_path,
+        device=patching_device,
+    )
+    print("Entropy model loaded.")
+
+    patching_batch_size = 32
+    tokenizer = TokenizerArgs(name="blt").build()
+    
+    # Schema for the output Arrow file
+    schema = pa.schema([
+        pa.field("sample_id", pa.string(), nullable=False),
+        pa.field("text", pa.string(), nullable=False),
+        pa.field("entropies", pa.list_(pa.float16()), nullable=False)
+    ])
+    
+    input_fs = get_fs(input_file, s3_profile=s3_profile)
+    output_fs = get_fs(output_file, s3_profile=s3_profile)
+
+    try:
+        with output_fs.open(output_file, "wb") as sink:
+            with pa.ipc.new_file(sink, schema) as writer:
+                doc_iterator = jsonl_file_iterator(input_fs, input_file)
+                
+                with Progress(*Progress.get_default_columns(), TextColumn("Docs: {task.completed} | Chunks: {task.fields[chunks]}")) as progress:
+                    task = progress.add_task("[green]Processing...", total=None, chunks=0)
+                    
+                    for doc_idx, doc in enumerate(doc_iterator):
+                        sample_id = str(doc[get_id_key(doc)])
+                        text = get_text(doc)
+                        
+                        if not text: # Skip empty documents
+                            continue
+                            
+                        full_text_entropies = []
+                        text_len = len(text)
+                        
+                        # --- ROBUST CHUNKING LOOP ---
+                        # Iterate through the document text in manageable chunks
+                        for i in range(0, text_len, TEXT_CHUNK_SIZE):
+                            text_chunk = text[i : i + TEXT_CHUNK_SIZE]
+                            
+                            if not text_chunk:
+                                continue
+
+                            tokens = torch.tensor(tokenizer.encode(text_chunk, add_bos=False, add_eos=False))
+                            
+                            # Skip if chunk results in no tokens
+                            if tokens.numel() == 0:
+                                continue
+                            
+                            # Unsqueeze to add a batch dimension
+                            tokens = tokens.unsqueeze(0)
+                            
+                            scores, _ = calculate_entropies(
+                                tokens,
+                                entropy_model,
+                                patching_batch_size,
+                                patching_device,
+                            )
+                            full_text_entropies.append(scores.squeeze(0).cpu())
+                        # ----------------------------
+
+                        if not full_text_entropies:
+                            logging.warning(f"Document {sample_id} produced no entropies. Skipping.")
+                            continue
+
+                        # Combine entropies from all chunks of the document
+                        final_entropies = torch.cat(full_text_entropies)
+                        
+                        # Write the complete document record to the Arrow file
+                        batch = pa.record_batch(
+                            [[sample_id], [text], [final_entropies.to(torch.float16).numpy()]],
+                            schema=schema,
+                        )
+                        writer.write(batch)
+                        
+                        # Update progress
+                        progress.update(task, advance=1, chunks=progress.tasks[0].fields['chunks'] + len(full_text_entropies))
+
+        # Create a success marker file
+        output_fs.touch(f"{output_file}.complete")
+        print(f"\nProcessing complete. Output saved to {output_file}")
+
+    except Exception as e:
+        logging.error(f"A critical error occurred while processing {input_file}: {e}", exc_info=True)
+        # Clean up partial file on error
+        if output_fs.exists(output_file):
+            print(f"Error occurred. Cleaning up partial file: {output_file}")
+            output_fs.rm(output_file)
+        raise
+
+if __name__ == "__main__":
+    typer.run(main)

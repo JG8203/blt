@@ -80,7 +80,7 @@ def calculate_entropies(
     with grad_context:
         entropies = []
         preds = []
-        max_length = getattr(entropy_model, "max_length", 8192)
+        max_length = entropy_model.max_seqlen
         batch_numel = max_length * patching_batch_size
         splits = torch.split(tokens.flatten(), batch_numel)
         for split in splits:

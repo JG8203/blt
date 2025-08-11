@@ -1,0 +1,657 @@
+==================== SAMPLE 1/10 ====================
+📝 Sentence: ate what's the specific name of the store na pinagbilhan mo ?
+📚 Source: youtube (2019)
+📏 Length: 61 characters, 12 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 10 (avg length: 6.30)
+    Segments: [] | [a] | [te ] | [what's the specific ] | [name of the ] | [s] | [to] | [re na ] | [pinagbilhan mo ] | [?]
+    Lengths: [1, 1, 3, 20, 12, 1, 2, 6, 15, 2]
+    Processing time: 0.2935s
+
+  HF Model:
+    Patches: 36 (avg length: 1.75)
+    Segments: [] | [a] | [t] | [e] | [ ] | [w] | [h] | [at's ] | [the ] | [s] | [p] | [ecific ] | [n] | [ame ] | [of ] | [the ] | [s] | [t] | [ore] | [ ] | [na ] | [p] | [i] | [n] | [a] | [g] | [b] | [i] | [lh] | [a] | [n] | [ ] | [m] | [o] | [ ] | [?]
+    Lengths: [1, 1, 1, 1, 1, 1, 1, 5, 4, 1, 1, 7, 1, 4, 3, 4, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2]
+    Processing time: 0.0346s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 16 (avg length: 3.81)
+    Segments: [ate] | [ what] | ['s] | [ the] | [ specific] | [ name] | [ of] | [ the] | [ store] | [ na]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0010s
+
+  Standard GPT-2 (BPE):
+    Tokens: 16 (avg length: 3.81)
+    Segments: [ate] | [ what] | ['s] | [ the] | [ specific] | [ name] | [ of] | [ the] | [ store] | [ na]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0007s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 16 (avg length: 3.81)
+    Segments: [ate] | [ what] | ['s] | [ the] | [ specific] | [ name] | [ of] | [ the] | [ store] | [ na]...
+    Perfect reconstruction: ❌
+    Processing time: 0.0018s
+
+  Tiktoken (cl100k_base):
+    Tokens: 16 (avg length: 3.81)
+    Segments: [ate] | [ what] | ['s] | [ the] | [ specific] | [ name] | [ of] | [ the] | [ store] | [ na]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0009s
+
+  Tiktoken (o200k_base):
+    Tokens: 14 (avg length: 4.36)
+    Segments: [ate] | [ what's] | [ the] | [ specific] | [ name] | [ of] | [ the] | [ store] | [ na] | [ pinag]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0006s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 14 (avg length: 4.36)
+    Segments: [ate] | [ what's] | [ the] | [ specific] | [ name] | [ of] | [ the] | [ store] | [ na] | [ pinag]...
+    Perfect reconstruction: ✅
+    Processing time: 0.2488s
+
+  ByT5 (byte-level):
+    Tokens: 61 (avg length: 1.00)
+    Segments: [a] | [t] | [e] | [ ] | [w] | [h] | [a] | [t] | ['] | [s]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0261s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 2/10 ====================
+📝 Sentence: But how about the Quality of your candidate XX_SEQSAMESYMBOLS
+📚 Source: youtube (2021)
+📏 Length: 61 characters, 9 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 11 (avg length: 5.73)
+    Segments: [] | [B] | [u] | [t ] | [how ] | [about ] | [the ] | [Quality ] | [of ] | [your candidate ] | [XX_SEQSAMESYMBOLS]
+    Lengths: [1, 1, 1, 2, 4, 6, 4, 8, 3, 15, 18]
+    Processing time: 0.0193s
+
+  HF Model:
+    Patches: 33 (avg length: 1.91)
+    Segments: [] | [B] | [u] | [t ] | [how ] | [a] | [bout ] | [the ] | [Q] | [u] | [a] | [lity ] | [of ] | [your ] | [c] | [a] | [n] | [didate] | [ ] | [X] | [X] | [_] | [S] | [E] | [Q] | [S] | [A] | [ME] | [S] | [YM] | [BOL] | [S] | []
+    Lengths: [1, 1, 1, 2, 4, 1, 5, 4, 1, 1, 1, 5, 3, 5, 1, 1, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 3, 1, 1]
+    Processing time: 0.0327s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 18 (avg length: 3.39)
+    Segments: [But] | [ how] | [ about] | [ the] | [ Quality] | [ of] | [ your] | [ candidate] | [ XX] | [_]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0009s
+
+  Standard GPT-2 (BPE):
+    Tokens: 18 (avg length: 3.39)
+    Segments: [But] | [ how] | [ about] | [ the] | [ Quality] | [ of] | [ your] | [ candidate] | [ XX] | [_]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0007s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 15 (avg length: 4.07)
+    Segments: [But] | [ how] | [ about] | [ the] | [ Quality] | [ of] | [ your] | [ candidate] | [ XX] | [_SEQ]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0004s
+
+  Tiktoken (cl100k_base):
+    Tokens: 15 (avg length: 4.07)
+    Segments: [But] | [ how] | [ about] | [ the] | [ Quality] | [ of] | [ your] | [ candidate] | [ XX] | [_SEQ]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_base):
+    Tokens: 15 (avg length: 4.07)
+    Segments: [But] | [ how] | [ about] | [ the] | [ Quality] | [ of] | [ your] | [ candidate] | [ XX] | [_SE]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 15 (avg length: 4.07)
+    Segments: [But] | [ how] | [ about] | [ the] | [ Quality] | [ of] | [ your] | [ candidate] | [ XX] | [_SE]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0003s
+
+  ByT5 (byte-level):
+    Tokens: 61 (avg length: 1.00)
+    Segments: [B] | [u] | [t] | [ ] | [h] | [o] | [w] | [ ] | [a] | [b]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0263s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 3/10 ====================
+📝 Sentence: facebook name : Daniel navaja Reason / Gusto kung makuha yung sasakyan mo bossd kasi kapag nakuha ko sya ibibinta ko sya bossd para maipayos ko po bahay namin bossd kasi kapag umuulan hindi kami makakatulog ng maayos bossd dahil luma na yung sa ibabaw namin kaya sana po mapili nyo po ako para maipayos ko na po aming bahay kasi subrang hirap talaga po lalo na ngayon ecq pa po sana po talaga mapili nyo po ako subrang fan ko talaga kayong lahat po simula AEtoNXP2 . 0 po godbless po sa inyo
+📚 Source: youtube (2021)
+📏 Length: 491 characters, 94 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 61 (avg length: 8.08)
+    Segments: [] | [fa] | [cebook ] | [name : Daniel ] | [n] | [avaja ] | [Reason ] | [/ ] | [Gusto ] | [kung makuha yung ] | [sasakyan mo bossd ] | [kasi ] | [kapag ] | [na] | [kuha ko sya i] | [bibinta ko sya bossd para ] | [ma] | [i] | [payos ko po bahay namin bo] | [ssd ] | [kasi ] | [kapag ] | [umuulan hindi k] | [ami ] | [makakatulog ng maayos ] | [bossd ] | [dahil ] | [luma na ] | [yung ] | [s] | [a] | [ ] | [ibabaw namin kaya ] | [sana ] | [p] | [o ma] | [pili nyo po ako pa] | [ra ] | [ma] | [i] | [pa] | [yos ko na po am] | [ing ba] | [hay ] | [kasi ] | [subrang ] | [hirap ta] | [laga po ] | [lalo na ngayon ecq pa po sana ] | [po talaga ma] | [pili ] | [nyo po ako subrang fa] | [n ] | [ko talaga kayong lahat po simula ] | [A] | [E] | [to] | [NXP] | [2 . ] | [0 po ] | [godbless po sa inyo]
+    Lengths: [1, 2, 7, 14, 1, 6, 7, 2, 6, 17, 18, 5, 6, 2, 13, 26, 2, 1, 26, 4, 5, 6, 15, 4, 22, 6, 6, 8, 5, 1, 1, 1, 18, 5, 1, 4, 18, 3, 2, 1, 2, 15, 6, 4, 5, 8, 8, 8, 30, 12, 5, 21, 2, 33, 1, 1, 2, 3, 4, 5, 20]
+    Processing time: 0.0182s
+
+  HF Model:
+    Patches: 346 (avg length: 1.42)
+    Segments: [] | [f] | [a] | [c] | [e] | [book] | [ ] | [n] | [a] | [me] | [ ] | [: ] | [D] | [a] | [n] | [iel ] | [n] | [a] | [v] | [a] | [ja] | [ ] | [R] | [e] | [a] | [son] | [ ] | [/ ] | [G] | [u] | [sto] | [ ] | [k] | [u] | [n] | [g ] | [m] | [a] | [k] | [u] | [h] | [a] | [ ] | [y] | [u] | [n] | [g ] | [s] | [a] | [s] | [a] | [k] | [y] | [a] | [n] | [ ] | [m] | [o] | [ ] | [b] | [o] | [s] | [s] | [d] | [ ] | [k] | [a] | [s] | [i] | [ ] | [k] | [a] | [p] | [a] | [g] | [ ] | [na] | [k] | [u] | [h] | [a] | [ ] | [k] | [o] | [ ] | [s] | [ya] | [ ] | [i] | [b] | [i] | [bi] | [n] | [t] | [a] | [ ] | [k] | [o] | [ ] | [s] | [ya ] | [b] | [o] | [ssd ] | [p] | [a] | [r] | [a] | [ ] | [m] | [a] | [i] | [p] | [a] | [y] | [o] | [s] | [ ] | [k] | [o ] | [p] | [o] | [ ] | [b] | [a] | [h] | [a] | [y] | [ ] | [na] | [mi] | [n ] | [b] | [o] | [ssd ] | [ka] | [si ] | [kapag ] | [u] | [m] | [u] | [u] | [l] | [a] | [n ] | [h] | [i] | [n] | [di ] | [k] | [a] | [m] | [i] | [ ] | [m] | [a] | [k] | [a] | [k] | [a] | [t] | [u] | [l] | [o] | [g] | [ ] | [ng ] | [m] | [a] | [a] | [y] | [o] | [s ] | [b] | [ossd ] | [d] | [a] | [h] | [il ] | [l] | [u] | [m] | [a] | [ ] | [na] | [ ] | [y] | [ung ] | [sa ] | [i] | [ba] | [b] | [a] | [w ] | [na] | [min ] | [k] | [a] | [y] | [a] | [ ] | [s] | [a] | [n] | [a] | [ ] | [p] | [o] | [ ] | [ma] | [p] | [i] | [l] | [i] | [ ] | [ny] | [o] | [ ] | [p] | [o ] | [a] | [k] | [o ] | [pa] | [ra ] | [ma] | [ipayos ] | [ko ] | [n] | [a] | [ ] | [po ] | [a] | [m] | [i] | [ng ] | [ba] | [hay ] | [ka] | [si ] | [s] | [u] | [b] | [r] | [a] | [ng ] | [hir] | [a] | [p] | [ ] | [t] | [a] | [l] | [a] | [ga ] | [po ] | [l] | [a] | [l] | [o] | [ ] | [n] | [a] | [ ] | [n] | [g] | [a] | [yon ] | [e] | [c] | [q] | [ ] | [p] | [a] | [ ] | [po ] | [s] | [a] | [n] | [a ] | [po ] | [t] | [a] | [laga ] | [ma] | [pili ] | [nyo ] | [po ] | [a] | [ko ] | [s] | [u] | [brang ] | [f] | [a] | [n] | [ ] | [k] | [o ] | [t] | [a] | [laga ] | [k] | [a] | [yo] | [ng ] | [la] | [hat ] | [po ] | [si] | [m] | [u] | [l] | [a] | [ ] | [A] | [E] | [t] | [o] | [N] | [X] | [P] | [2] | [ ] | [.] | [ ] | [0] | [ ] | [p] | [o] | [ ] | [g] | [o] | [d] | [b] | [l] | [e] | [s] | [s ] | [p] | [o ] | [s] | [a] | [ ] | [in] | [yo]
+    Lengths: [1, 1, 1, 1, 1, 4, 1, 1, 1, 2, 1, 2, 1, 1, 1, 4, 1, 1, 1, 1, 2, 1, 1, 1, 1, 3, 1, 2, 1, 1, 3, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 4, 2, 3, 6, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 2, 1, 5, 1, 1, 1, 3, 1, 1, 1, 1, 1, 2, 1, 1, 4, 3, 1, 2, 1, 1, 2, 2, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 2, 2, 3, 2, 7, 3, 1, 1, 1, 3, 1, 1, 1, 3, 2, 4, 2, 3, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 2, 3, 1, 1, 5, 2, 5, 4, 3, 1, 3, 1, 1, 6, 1, 1, 1, 1, 1, 2, 1, 1, 5, 1, 1, 2, 3, 2, 4, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 3]
+    Processing time: 0.0329s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 183 (avg length: 2.68)
+    Segments: [facebook] | [ name] | [ :] | [ Daniel] | [ nav] | [aja] | [ Reason] | [ /] | [ Gust] | [o]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0046s
+
+  Standard GPT-2 (BPE):
+    Tokens: 183 (avg length: 2.68)
+    Segments: [facebook] | [ name] | [ :] | [ Daniel] | [ nav] | [aja] | [ Reason] | [ /] | [ Gust] | [o]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0044s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 164 (avg length: 2.99)
+    Segments: [facebook] | [ name] | [ :] | [ Daniel] | [ nav] | [aja] | [ Reason] | [ /] | [ Gust] | [o]...
+    Perfect reconstruction: ❌
+    Processing time: 0.0017s
+
+  Tiktoken (cl100k_base):
+    Tokens: 169 (avg length: 2.91)
+    Segments: [facebook] | [ name] | [ :] | [ Daniel] | [ nav] | [aja] | [ Reason] | [ /] | [ Gust] | [o]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0003s
+
+  Tiktoken (o200k_base):
+    Tokens: 137 (avg length: 3.58)
+    Segments: [facebook] | [ name] | [ :] | [ Daniel] | [ n] | [ava] | [ja] | [ Reason] | [ /] | [ G]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0003s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 137 (avg length: 3.58)
+    Segments: [facebook] | [ name] | [ :] | [ Daniel] | [ n] | [ava] | [ja] | [ Reason] | [ /] | [ G]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0005s
+
+  ByT5 (byte-level):
+    Tokens: 491 (avg length: 1.00)
+    Segments: [f] | [a] | [c] | [e] | [b] | [o] | [o] | [k] | [ ] | [n]...
+    Perfect reconstruction: ✅
+    Processing time: 0.2077s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 4/10 ====================
+📝 Sentence: yung nakiki-Women's month ka , may pagsusuot ka pa ng violet every week , tapos i-down mo naman kapwa mo babae parang andali lang ?
+📚 Source: twitter (2022)
+📏 Length: 131 characters, 25 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 20 (avg length: 6.65)
+    Segments: [] | [yung ] | [na] | [kiki-] | [Women's ] | [month ka , ] | [ma] | [y ] | [pagsusuot ka ] | [pa ] | [ng vi] | [olet every week ] | [, tapos ] | [i-] | [down mo naman kapwa ] | [mo ] | [ba] | [bae parang ] | [a] | [ndali lang ?]
+    Lengths: [1, 5, 2, 5, 8, 11, 2, 2, 13, 3, 5, 16, 8, 2, 20, 3, 2, 11, 1, 13]
+    Processing time: 0.0180s
+
+  HF Model:
+    Patches: 109 (avg length: 1.22)
+    Segments: [] | [y] | [u] | [n] | [g] | [ ] | [n] | [a] | [k] | [i] | [k] | [i] | [-] | [W] | [o] | [men] | ['s ] | [m] | [o] | [nth] | [ ] | [k] | [a] | [ ] | [,] | [ ] | [m] | [a] | [y ] | [p] | [a] | [g] | [s] | [u] | [s] | [u] | [o] | [t] | [ ] | [k] | [a] | [ ] | [p] | [a] | [ ] | [n] | [g] | [ ] | [v] | [i] | [olet] | [ ] | [e] | [very] | [ ] | [week] | [ ] | [, ] | [t] | [a] | [p] | [o] | [s] | [ ] | [i] | [-] | [d] | [o] | [wn] | [ ] | [m] | [o] | [ ] | [n] | [a] | [m] | [a] | [n ] | [ka] | [p] | [w] | [a] | [ ] | [m] | [o] | [ ] | [b] | [a] | [b] | [a] | [e] | [ ] | [p] | [a] | [r] | [a] | [n] | [g ] | [a] | [n] | [da] | [l] | [i] | [ ] | [la] | [ng] | [ ] | [?] | []
+    Lengths: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 4, 1, 4, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 2, 2, 1, 1, 1]
+    Processing time: 0.0327s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 44 (avg length: 2.98)
+    Segments: [y] | [ung] | [ n] | [ak] | [iki] | [-] | [Women] | ['s] | [ month] | [ ka]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0014s
+
+  Standard GPT-2 (BPE):
+    Tokens: 44 (avg length: 2.98)
+    Segments: [y] | [ung] | [ n] | [ak] | [iki] | [-] | [Women] | ['s] | [ month] | [ ka]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0013s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 40 (avg length: 3.27)
+    Segments: [y] | [ung] | [ nak] | [iki] | [-W] | [omen] | ['s] | [ month] | [ ka] | [,]...
+    Perfect reconstruction: ❌
+    Processing time: 0.0006s
+
+  Tiktoken (cl100k_base):
+    Tokens: 40 (avg length: 3.27)
+    Segments: [y] | [ung] | [ nak] | [iki] | [-W] | [omen] | ['s] | [ month] | [ ka] | [ ,]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_base):
+    Tokens: 36 (avg length: 3.64)
+    Segments: [y] | [ung] | [ nak] | [iki] | [-W] | [omen] | ['s] | [ month] | [ ka] | [ ,]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 36 (avg length: 3.64)
+    Segments: [y] | [ung] | [ nak] | [iki] | [-W] | [omen] | ['s] | [ month] | [ ka] | [ ,]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0002s
+
+  ByT5 (byte-level):
+    Tokens: 131 (avg length: 1.00)
+    Segments: [y] | [u] | [n] | [g] | [ ] | [n] | [a] | [k] | [i] | [k]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0555s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 5/10 ====================
+📝 Sentence: lakas amatz ng tita ko kasi nag pa-print lang ng photo ko , sa NYC pa HAHHAHAHA 'yung picture ko , kinuha sa Baguio , na pa-print sa NYC , ako lang ang dito lang ... salamat na lang po sa lahat , na una pa sa 'kin
+📚 Source: twitter (2021)
+📏 Length: 213 characters, 48 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 36 (avg length: 5.97)
+    Segments: [] | [la] | [kas ] | [amatz ng tita ] | [ko kasi ] | [na] | [g] | [ p] | [a-] | [print lang ] | [ng ] | [photo ] | [ko , ] | [s] | [a N] | [YC ] | [pa HAHHA] | [HA] | [HA 'yung ] | [picture ko ] | [, ] | [kinuha sa ] | [B] | [ag] | [uio ] | [, na pa-] | [prin] | [t s] | [a ] | [NYC , ako lang ang dito lang ... ] | [salamat na lang ] | [po ] | [sa ] | [lahat ] | [, na una pa sa ] | ['kin]
+    Lengths: [1, 2, 4, 14, 8, 2, 1, 2, 2, 11, 3, 6, 5, 1, 3, 3, 8, 2, 9, 11, 2, 10, 1, 2, 4, 8, 4, 3, 2, 33, 16, 3, 3, 6, 15, 5]
+    Processing time: 0.0179s
+
+  HF Model:
+    Patches: 146 (avg length: 1.47)
+    Segments: [] | [l] | [a] | [ka] | [s] | [ ] | [a] | [m] | [a] | [t] | [z] | [ ] | [n] | [g] | [ ] | [t] | [i] | [t] | [a] | [ ] | [k] | [o] | [ ] | [k] | [a] | [s] | [i] | [ ] | [n] | [a] | [g] | [ ] | [p] | [a] | [-] | [pr] | [i] | [n] | [t] | [ ] | [la] | [ng] | [ ] | [ng ] | [p] | [h] | [o] | [to] | [ ] | [k] | [o ] | [, ] | [s] | [a] | [ ] | [N] | [Y] | [C ] | [p] | [a] | [ ] | [H] | [A] | [HH] | [A] | [HA] | [HA ] | ['] | [y] | [u] | [n] | [g ] | [p] | [i] | [c] | [ture] | [ ] | [ko ] | [, ] | [k] | [i] | [n] | [u] | [h] | [a] | [ ] | [s] | [a ] | [B] | [a] | [g] | [uio ] | [, ] | [n] | [a] | [ ] | [p] | [a] | [-] | [print ] | [sa ] | [N] | [YC ] | [, ] | [a] | [ko ] | [la] | [ng ] | [a] | [ng ] | [d] | [i] | [t] | [o ] | [la] | [ng ] | [.] | [..] | [ ] | [s] | [al] | [a] | [m] | [at ] | [na] | [ ] | [la] | [ng ] | [po] | [ ] | [sa ] | [la] | [hat ] | [, ] | [na] | [ ] | [u] | [n] | [a] | [ ] | [pa] | [ ] | [sa ] | ['] | [k] | [in]
+    Lengths: [1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 1, 3, 1, 1, 1, 2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 3, 1, 1, 1, 1, 2, 1, 1, 1, 4, 1, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 4, 2, 1, 1, 1, 1, 1, 1, 6, 3, 1, 3, 2, 1, 3, 2, 3, 1, 3, 1, 1, 1, 2, 2, 3, 1, 2, 1, 1, 2, 1, 1, 3, 2, 1, 2, 3, 2, 1, 3, 2, 4, 2, 2, 1, 1, 1, 1, 1, 2, 1, 3, 1, 1, 3]
+    Processing time: 0.0327s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 75 (avg length: 2.84)
+    Segments: [l] | [ak] | [as] | [ am] | [atz] | [ ng] | [ tit] | [a] | [ ko] | [ k]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0020s
+
+  Standard GPT-2 (BPE):
+    Tokens: 75 (avg length: 2.84)
+    Segments: [l] | [ak] | [as] | [ am] | [atz] | [ ng] | [ tit] | [a] | [ ko] | [ k]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0018s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 68 (avg length: 3.13)
+    Segments: [lak] | [as] | [ am] | [atz] | [ ng] | [ t] | [ita] | [ ko] | [ k] | [asi]...
+    Perfect reconstruction: ❌
+    Processing time: 0.0008s
+
+  Tiktoken (cl100k_base):
+    Tokens: 69 (avg length: 3.09)
+    Segments: [l] | [ak] | [as] | [ am] | [atz] | [ ng] | [ t] | [ita] | [ ko] | [ k]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0002s
+
+  Tiktoken (o200k_base):
+    Tokens: 64 (avg length: 3.33)
+    Segments: [l] | [akas] | [ am] | [atz] | [ ng] | [ t] | [ita] | [ ko] | [ kasi] | [ nag]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 64 (avg length: 3.33)
+    Segments: [l] | [akas] | [ am] | [atz] | [ ng] | [ t] | [ita] | [ ko] | [ kasi] | [ nag]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0003s
+
+  ByT5 (byte-level):
+    Tokens: 213 (avg length: 1.00)
+    Segments: [l] | [a] | [k] | [a] | [s] | [ ] | [a] | [m] | [a] | [t]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0902s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 6/10 ====================
+📝 Sentence: Ahahahahahhah nakasagot din ng tinawag syang marilyn hahahhh ...
+📚 Source: youtube (2021)
+📏 Length: 64 characters, 9 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 11 (avg length: 6.00)
+    Segments: [] | [A] | [hahahahahhah ] | [na] | [kasa] | [got din ng ] | [t] | [in] | [awag syang ] | [marilyn hahahhh ] | [...]
+    Lengths: [1, 1, 13, 2, 4, 11, 1, 2, 11, 16, 4]
+    Processing time: 0.0180s
+
+  HF Model:
+    Patches: 47 (avg length: 1.40)
+    Segments: [] | [A] | [h] | [a] | [ha] | [ha] | [ha] | [hha] | [h ] | [na] | [ka] | [s] | [a] | [g] | [o] | [t] | [ ] | [d] | [i] | [n] | [ ] | [ng] | [ ] | [t] | [i] | [n] | [a] | [wa] | [g] | [ ] | [sya] | [n] | [g ] | [m] | [a] | [r] | [i] | [l] | [yn] | [ ] | [h] | [a] | [hahhh ] | [.] | [.] | [.] | []
+    Lengths: [1, 1, 1, 1, 2, 2, 2, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 6, 1, 1, 1, 1]
+    Processing time: 0.0326s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 24 (avg length: 2.67)
+    Segments: [Ah] | [ahah] | [ahah] | [h] | [ah] | [ n] | [ak] | [as] | [ag] | [ot]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0009s
+
+  Standard GPT-2 (BPE):
+    Tokens: 24 (avg length: 2.67)
+    Segments: [Ah] | [ahah] | [ahah] | [h] | [ah] | [ n] | [ak] | [as] | [ag] | [ot]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0008s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 25 (avg length: 2.56)
+    Segments: [Ah] | [ah] | [ah] | [ah] | [ah] | [h] | [ah] | [ nak] | [as] | [ag]...
+    Perfect reconstruction: ❌
+    Processing time: 0.0004s
+
+  Tiktoken (cl100k_base):
+    Tokens: 25 (avg length: 2.56)
+    Segments: [Ah] | [ah] | [ah] | [ah] | [ah] | [h] | [ah] | [ nak] | [as] | [ag]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_base):
+    Tokens: 20 (avg length: 3.20)
+    Segments: [Ah] | [ahah] | [ahah] | [hah] | [ nak] | [as] | [agot] | [ din] | [ ng] | [ tin]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 20 (avg length: 3.20)
+    Segments: [Ah] | [ahah] | [ahah] | [hah] | [ nak] | [as] | [agot] | [ din] | [ ng] | [ tin]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0002s
+
+  ByT5 (byte-level):
+    Tokens: 64 (avg length: 1.00)
+    Segments: [A] | [h] | [a] | [h] | [a] | [h] | [a] | [h] | [a] | [h]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0275s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 7/10 ====================
+📝 Sentence: XX_USERNAME akala mo hindi sya natatypo
+📚 Source: twitter (2021)
+📏 Length: 39 characters, 6 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 5 (avg length: 8.20)
+    Segments: [] | [XX_USERNAME ] | [akala mo ] | [hindi ] | [sya natatypo]
+    Lengths: [1, 12, 9, 6, 13]
+    Processing time: 0.0179s
+
+  HF Model:
+    Patches: 33 (avg length: 1.24)
+    Segments: [] | [X] | [X] | [_] | [U] | [S] | [ER] | [NAME] | [ ] | [a] | [k] | [al] | [a] | [ ] | [m] | [o] | [ ] | [h] | [i] | [ndi ] | [s] | [y] | [a] | [ ] | [n] | [a] | [t] | [a] | [t] | [y] | [p] | [o] | []
+    Lengths: [1, 1, 1, 1, 1, 1, 2, 4, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    Processing time: 0.0326s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 15 (avg length: 2.60)
+    Segments: [XX] | [_] | [USER] | [NAME] | [ ak] | [ala] | [ mo] | [ hind] | [i] | [ sy]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0006s
+
+  Standard GPT-2 (BPE):
+    Tokens: 15 (avg length: 2.60)
+    Segments: [XX] | [_] | [USER] | [NAME] | [ ak] | [ala] | [ mo] | [ hind] | [i] | [ sy]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0006s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 11 (avg length: 3.55)
+    Segments: [XX] | [_USERNAME] | [ ak] | [ala] | [ mo] | [ hindi] | [ sy] | [a] | [ nat] | [at]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0002s
+
+  Tiktoken (cl100k_base):
+    Tokens: 11 (avg length: 3.55)
+    Segments: [XX] | [_USERNAME] | [ ak] | [ala] | [ mo] | [ hindi] | [ sy] | [a] | [ nat] | [at]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_base):
+    Tokens: 12 (avg length: 3.25)
+    Segments: [XX] | [_USERNAME] | [ ak] | [ala] | [ mo] | [ hindi] | [ s] | [ya] | [ nat] | [at]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 12 (avg length: 3.25)
+    Segments: [XX] | [_USERNAME] | [ ak] | [ala] | [ mo] | [ hindi] | [ s] | [ya] | [ nat] | [at]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0002s
+
+  ByT5 (byte-level):
+    Tokens: 39 (avg length: 1.00)
+    Segments: [X] | [X] | [_] | [U] | [S] | [E] | [R] | [N] | [A] | [M]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0170s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 8/10 ====================
+📝 Sentence: Thank u for making the mv finally !
+📚 Source: youtube (2020)
+📏 Length: 35 characters, 8 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 7 (avg length: 5.29)
+    Segments: [] | [T] | [hank u ] | [for ] | [making ] | [the ] | [mv finally !]
+    Lengths: [1, 1, 7, 4, 7, 4, 13]
+    Processing time: 0.0177s
+
+  HF Model:
+    Patches: 12 (avg length: 3.08)
+    Segments: [] | [T] | [hank u ] | [for ] | [making ] | [the ] | [mv] | [ ] | [f] | [i] | [nally ] | [!]
+    Lengths: [1, 1, 7, 4, 7, 4, 2, 1, 1, 1, 6, 2]
+    Processing time: 0.0325s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 9 (avg length: 3.89)
+    Segments: [Thank] | [ u] | [ for] | [ making] | [ the] | [ m] | [v] | [ finally] | [ !]
+    Perfect reconstruction: ✅
+    Processing time: 0.0005s
+
+  Standard GPT-2 (BPE):
+    Tokens: 9 (avg length: 3.89)
+    Segments: [Thank] | [ u] | [ for] | [ making] | [ the] | [ m] | [v] | [ finally] | [ !]
+    Perfect reconstruction: ✅
+    Processing time: 0.0005s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 8 (avg length: 4.38)
+    Segments: [Thank] | [ u] | [ for] | [ making] | [ the] | [ mv] | [ finally] | [!]
+    Perfect reconstruction: ❌
+    Processing time: 0.0002s
+
+  Tiktoken (cl100k_base):
+    Tokens: 8 (avg length: 4.38)
+    Segments: [Thank] | [ u] | [ for] | [ making] | [ the] | [ mv] | [ finally] | [ !]
+    Perfect reconstruction: ✅
+    Processing time: 0.0000s
+
+  Tiktoken (o200k_base):
+    Tokens: 8 (avg length: 4.38)
+    Segments: [Thank] | [ u] | [ for] | [ making] | [ the] | [ mv] | [ finally] | [ !]
+    Perfect reconstruction: ✅
+    Processing time: 0.0000s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 8 (avg length: 4.38)
+    Segments: [Thank] | [ u] | [ for] | [ making] | [ the] | [ mv] | [ finally] | [ !]
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  ByT5 (byte-level):
+    Tokens: 35 (avg length: 1.00)
+    Segments: [T] | [h] | [a] | [n] | [k] | [ ] | [u] | [ ] | [f] | [o]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0151s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 9/10 ====================
+📝 Sentence: . .. WTF I'm hearing ?
+📚 Source: youtube (2015)
+📏 Length: 22 characters, 6 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 5 (avg length: 4.80)
+    Segments: [] | [. ] | [.. ] | [WTF I] | ['m hearing ?]
+    Lengths: [1, 2, 3, 5, 13]
+    Processing time: 0.0177s
+
+  HF Model:
+    Patches: 15 (avg length: 1.60)
+    Segments: [] | [.] | [ ] | [..] | [ ] | [W] | [T] | [F] | [ ] | [I] | ['] | [m ] | [hearing ] | [?] | []
+    Lengths: [1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 8, 1, 1]
+    Processing time: 0.0313s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 8 (avg length: 2.75)
+    Segments: [.] | [ ..] | [ W] | [TF] | [ I] | ['m] | [ hearing] | [ ?]
+    Perfect reconstruction: ✅
+    Processing time: 0.0004s
+
+  Standard GPT-2 (BPE):
+    Tokens: 8 (avg length: 2.75)
+    Segments: [.] | [ ..] | [ W] | [TF] | [ I] | ['m] | [ hearing] | [ ?]
+    Perfect reconstruction: ✅
+    Processing time: 0.0004s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 7 (avg length: 3.14)
+    Segments: [.] | [..] | [ WTF] | [ I] | ['m] | [ hearing] | [?]
+    Perfect reconstruction: ❌
+    Processing time: 0.0002s
+
+  Tiktoken (cl100k_base):
+    Tokens: 7 (avg length: 3.14)
+    Segments: [.] | [ ..] | [ WTF] | [ I] | ['m] | [ hearing] | [ ?]
+    Perfect reconstruction: ✅
+    Processing time: 0.0000s
+
+  Tiktoken (o200k_base):
+    Tokens: 6 (avg length: 3.67)
+    Segments: [.] | [ ..] | [ WTF] | [ I'm] | [ hearing] | [ ?]
+    Perfect reconstruction: ✅
+    Processing time: 0.0000s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 6 (avg length: 3.67)
+    Segments: [.] | [ ..] | [ WTF] | [ I'm] | [ hearing] | [ ?]
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  ByT5 (byte-level):
+    Tokens: 22 (avg length: 1.00)
+    Segments: [.] | [ ] | [.] | [.] | [ ] | [W] | [T] | [F] | [ ] | [I]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0097s
+--------------------------------------------------------------------------------
+
+==================== SAMPLE 10/10 ====================
+📝 Sentence: Childhood memories : yung super close ko sa papa ko tipong kahit san sya pumunta kasama nya ako .
+📚 Source: youtube (2021)
+📏 Length: 97 characters, 19 words
+
+🧠 ENTROPY MODEL RESULTS:
+
+  My Model:
+    Patches: 13 (avg length: 7.62)
+    Segments: [] | [C] | [h] | [i] | [ldhood memories : yung ] | [s] | [uper close ko sa ] | [papa ko ] | [tipong ] | [ka] | [hit ] | [san sya pumunta kasama nya ako ] | [.]
+    Lengths: [1, 1, 1, 1, 23, 1, 17, 8, 7, 2, 4, 31, 2]
+    Processing time: 0.0177s
+
+  HF Model:
+    Patches: 73 (avg length: 1.36)
+    Segments: [] | [C] | [h] | [i] | [ldhood ] | [memories ] | [: ] | [yu] | [n] | [g] | [ ] | [s] | [u] | [per] | [ ] | [c] | [l] | [o] | [se] | [ ] | [ko] | [ ] | [s] | [a] | [ ] | [p] | [a] | [p] | [a] | [ ] | [k] | [o] | [ ] | [t] | [i] | [p] | [o] | [n] | [g ] | [k] | [a] | [h] | [i] | [t ] | [sa] | [n] | [ ] | [s] | [y] | [a] | [ ] | [pu] | [m] | [u] | [n] | [t] | [a] | [ ] | [k] | [a] | [s] | [a] | [ma] | [ ] | [n] | [y] | [a] | [ ] | [a] | [k] | [o ] | [.] | []
+    Lengths: [1, 1, 1, 1, 7, 9, 2, 2, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1]
+    Processing time: 0.0300s
+
+🔤 TRADITIONAL TOKENIZER RESULTS:
+
+  Tagalog GPT-2 (BPE):
+    Tokens: 32 (avg length: 3.03)
+    Segments: [Child] | [hood] | [ memories] | [ :] | [ y] | [ung] | [ super] | [ close] | [ ko] | [ sa]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0011s
+
+  Standard GPT-2 (BPE):
+    Tokens: 32 (avg length: 3.03)
+    Segments: [Child] | [hood] | [ memories] | [ :] | [ y] | [ung] | [ super] | [ close] | [ ko] | [ sa]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0010s
+
+  Llama-3 (Meta-Llama-3-8B):
+    Tokens: 28 (avg length: 3.46)
+    Segments: [Child] | [hood] | [ memories] | [ :] | [ y] | [ung] | [ super] | [ close] | [ ko] | [ sa]...
+    Perfect reconstruction: ❌
+    Processing time: 0.0004s
+
+  Tiktoken (cl100k_base):
+    Tokens: 29 (avg length: 3.34)
+    Segments: [Child] | [hood] | [ memories] | [ :] | [ y] | [ung] | [ super] | [ close] | [ ko] | [ sa]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_base):
+    Tokens: 23 (avg length: 4.22)
+    Segments: [Child] | [hood] | [ memories] | [ :] | [ yung] | [ super] | [ close] | [ ko] | [ sa] | [ papa]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0001s
+
+  Tiktoken (o200k_harmony):
+    Tokens: 23 (avg length: 4.22)
+    Segments: [Child] | [hood] | [ memories] | [ :] | [ yung] | [ super] | [ close] | [ ko] | [ sa] | [ papa]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0002s
+
+  ByT5 (byte-level):
+    Tokens: 97 (avg length: 1.00)
+    Segments: [C] | [h] | [i] | [l] | [d] | [h] | [o] | [o] | [d] | [ ]...
+    Perfect reconstruction: ✅
+    Processing time: 0.0414s
+--------------------------------------------------------------------------------
+
+📊 COMPREHENSIVE STATISTICS
+================================================================================
+
+📈 SEGMENTATION EFFICIENCY COMPARISON:
+Method                         Avg Segments Avg Length   Avg Time (ms) Type           
+-------------------------------------------------------------------------------------
+My Model                       17.9         6.89         45.57        Entropy        
+HF Model                       85.0         1.45         32.44        Entropy        
+Tagalog GPT-2 (BPE)            42.4         1.00         1.34         Traditional    
+Standard GPT-2 (BPE)           42.4         1.00         1.22         Traditional    
+Llama-3 (Meta-Llama-3-8B)      38.2         1.00         0.66         Traditional    
+Tiktoken (cl100k_base)         38.9         1.00         0.19         Traditional    
+Tiktoken (o200k_base)          33.5         1.00         0.16         Traditional    
+Tiktoken (o200k_harmony)       33.5         1.00         25.09        Traditional    
+ByT5 (byte-level)              121.4        1.00         51.66        Traditional    
+
+===============================================================================

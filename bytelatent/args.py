@@ -150,7 +150,7 @@ class DataloaderArgs(BaseModel):
     add_patches: bool = True
 
     tokenizer_args: TokenizerArgs = TokenizerArgs()
-    patcher_args: PatcherArgs = PatcherArgs()
+    patcher_args: PatcherArgs = PatcherArgs(patching_device="cpu")
 
     def _create_sequence_iterators(
         self, rank: int, world_size: int

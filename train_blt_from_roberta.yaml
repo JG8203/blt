@@ -1,0 +1,64 @@
+# ~/blt/train_blt_from_roberta.yaml
+
+dump_dir: "models/blt_from_roberta"
+name: "tagalog-blt-from-roberta"
+steps: 200000 # Set a high number of steps for the final finetuning run
+
+# --- CRITICAL: Point to the initial checkpoint we will create ---
+checkpoint:
+  init_ckpt_path: "models/blt_from_roberta/initial_weights/"
+  dump:
+    every: 5000
+    keep: 2
+  eval:
+    every: -1
+# -----------------------------------------------------------------
+
+# Define the BLT model architecture
+train_entropy_model: false
+model:
+  # --- Global Transformer (matches RoBERTa's config.json) ---
+  dim: 768
+  n_layers_global: 12
+  n_heads_global: 12
+  dim_global: 768
+  ffn_dim_multiplier: 1.5 # To match RoBERTa's intermediate_size 3072
+
+  # --- Loca Models (these will be trained from scratch) ---
+  n_layers_local_decoder: 4
+  dim_local_decoder: 512
+  n_heads_local_decoder: 8
+  n_layers_local_encoder: 2
+  dim_local_encoder: 512
+  n_heads_local_encoder: 8
+
+  # --- Standard BLT Settings ---
+  vocab_size: 260
+  patch_size: 4.5
+  patch_in_forward: False
+  max_encoder_seq_length: 8192
+  patching_mode: "entropy"
+# --- Data Configuration ---
+data:
+  # Point to your PREPROCESSED .arrow files from Phase 2
+  root_dir: "data"
+  sources:
+    my_dataset_raw_chunks: 1.0
+  file_format: "json" # Using raw JSON files for testing
+  batch_size: 8 # Adjust based on your GPU memory for the large model
+  seq_len: 1024 # This is in number of PATCHES for the main model
+  max_encoder_seq_length: 8192
+  add_patches: true
+  patcher_args:
+    patching_mode: "entropy"
+    threshold: 1.33 # This is the threshold used by the patcher during training
+  tokenizer_args:
+    name: "blt"
+
+# --- Standard Training Settings ---
+optim:
+  lr: 3.0e-4
+  warmup: 2000
+distributed:
+  fsdp_type: full_shard
+  model_dtype: "bf16"

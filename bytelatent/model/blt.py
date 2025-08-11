@@ -73,7 +73,7 @@ def get_global_dim_patch_emb(args):
         or not args.downsampling_by_pooling
         or len(args.downsampling_by_pooling) == 0
     ):
-        dim_patch_emb = dim_token_emb * args.patch_size
+        dim_patch_emb = int(dim_token_emb * args.patch_size)
     else:
         dim_patch_emb = dim_token_emb * sum(
             [
